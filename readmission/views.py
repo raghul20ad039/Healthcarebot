@@ -29,7 +29,7 @@ def services(request):
         if(result.values[0] == '>30'):
             result.values[0] = 'You should be admitted between '+str(before_date)+' and '+str(after_date)
         elif(result.values[0] == '<30'):
-            result.values[0] = 'You should be admitted before '+str(before_date)
+            result.values[0] = 'You should be admitted before '+str(before_date)+' in the hospital'
         else:
             result.values[0] = 'You need not be admitted in a hospital'
         print(result)
