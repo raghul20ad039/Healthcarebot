@@ -10,9 +10,7 @@
     <meta content="" name="description">
     <meta content="" name="keywords">
 
-    <!-- Favicons -->
-    <link href="{% static 'readmission/img/favicon.png' %}" rel="icon">
-    <link href="{% static 'readmission/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
@@ -54,10 +52,15 @@
             <ul>
                 <li><a class="nav-link scrollto " href="{% url 'home' %}">Home</a></li>
                 <li><a class="nav-link scrollto" href="{% url 'services' %}">Services</a></li>
-                <li><a class="nav-link scrollto" href="{% url 'appointment' %}">Live Chat</a></li>
+                <li><a class="nav-link scrollto" href="{% url 'livechat' %}">Live Chat</a></li>
+
+                {% if user.is_authenticated %}
+                <li><a class="nav-link scrollto" href="{% url 'logout' %}">Logout</a></li>
+                <li><a class="nav-link scrollto" href="{% url 'dashboard' %}">Dashboard</a></li>
+                {% else %}
                 <li><a class="nav-link scrollto" href="{% url 'login' %}">Login</a></li>
                 <li><a class="nav-link scrollto" href="{% url 'register' %}">Register</a></li>
-                <li><a class="nav-link scrollto" href="{% url 'dashboard' %}">Dashboard</a></li>
+                {% endif %}
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
         </nav><!-- .navbar -->

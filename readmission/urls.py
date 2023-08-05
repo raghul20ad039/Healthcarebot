@@ -1,12 +1,17 @@
 from django.contrib import admin
 from django.urls import path
-from .import views
+from . import views
 
 urlpatterns = [
-    path("",views.home,name="home"),
-    path("appointment",views.appointment,name="appointment"),
-    path("login",views.login,name="login"),
-    path("register",views.register,name="register"),
-    path("services",views.services,name="services"),
-    path("dashboard",views.dashboard,name="dashboard"),
+    path("", views.home, name="home"),
+    path("livechat", views.livechat, name="livechat"),
+    path("login", views.login, name="login"),
+    path("logout",views.logout,name="logout"),
+    path("register", views.register, name="register"),
+    path("services", views.services, name="services"),
+    path("dashboard", views.dashboard, name="dashboard"),
+    path('<str:room>/', views.room, name='room'),
+    path('checkview', views.checkview, name='checkview'),
+    path('send', views.send, name='send'),
+    path('getMessages/<str:room>/', views.getMessages, name='getMessages'),
 ]
